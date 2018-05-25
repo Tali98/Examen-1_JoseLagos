@@ -47,6 +47,15 @@ public class Principal extends javax.swing.JFrame {
         jd_logeado = new javax.swing.JDialog();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
@@ -139,15 +148,74 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel8.setText("Nombre_Completo");
+
+        jLabel10.setText("Correo");
+
+        jLabel11.setText("Username");
+
+        jLabel12.setText("Password");
+
+        jTextField7.setText("jTextField7");
+
+        jTextField9.setText("jTextField9");
+
+        jTextField10.setText("jTextField10");
+
+        jTextField11.setText("jTextField11");
+
+        jButton5.setText("Modificar");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addGap(67, 67, 67)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField7)
+                                .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                .addComponent(jTextField11))))
+                    .addComponent(jButton5))
+                .addContainerGap(344, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addContainerGap(311, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Perfil", jPanel1);
@@ -277,22 +345,39 @@ public class Principal extends javax.swing.JFrame {
         if (users.size() == 0) {
             JOptionPane.showMessageDialog(this, "No hay usuarios registrados");
         } else {
-            for (int a = 0; a < users.size(); a++) {
-                String con = users.get(a).getNombre_completo();
-                String pass = users.get(a).getNombre_completo();
-                if (con.equals(jTextField1.getText()) && pass.equals(jPasswordField1.getText())) {
+            for (a = 0; a < users.size(); a++) {
+                String con = users.get(a).getUser();
+                String pass = users.get(a).getContrasena();
+                String con2 = jTextField1.getText();
+                String pass2 = jPasswordField1.getText();
+                System.out.println(con);
+                System.out.println(pass);
+                System.out.println(con2);
+                System.out.println(pass2);
+                if (con.equals(con2) && pass.equals(pass2)) {
                     v = false;
+                    break;
                 } else {
                     v = true;
                 }
             }
-            while (v = false) {
+            System.out.println(v);
+            if (v == false) {
+                jTextField7.setText("");
+                jTextField9.setText("");
+                jTextField10.setText("");
+                jTextField11.setText("");
+                jTextField7.setText(users.get(a).getNombre_completo());
+                jTextField9.setText(users.get(a).getCorreo());
+                jTextField10.setText(users.get(a).getUser());
+                jTextField11.setText(users.get(a).getContrasena());
+                JOptionPane.showMessageDialog(this, "Si desea modificar haga el cambio deseado y luego presione modificar");
                 jd_logeado.setModal(true);
                 jd_logeado.pack();
                 jd_logeado.setLocationRelativeTo(this);
                 jd_logeado.setVisible(true);
             }
-            while (v = true) {
+            if (v == true) {
                 JOptionPane.showMessageDialog(this, "No existe ese usuario o su contrasena esta mala ");
             }
         }
@@ -324,7 +409,6 @@ public class Principal extends javax.swing.JFrame {
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         Usuario u = new Usuario();
         String name;
-        int age;
         String mail;
         String username;
         String contrasena;
@@ -347,6 +431,35 @@ public class Principal extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+
+        Usuario u = new Usuario();
+        String name;
+        String mail;
+        String username;
+        String contrasena;
+
+        try {
+            name = (jTextField7.getText());
+            mail = jTextField9.getText();
+            username = jTextField10.getText();
+            contrasena = jTextField11.getText();
+            users.get(a).setNombre_completo(name);
+            users.get(a).setCorreo(mail);
+            users.get(a).setUser(username);
+            users.get(a).setContrasena(contrasena);
+            System.out.println(users.get(a).getNombre_completo());
+            jTextField7.setText(users.get(a).getNombre_completo());
+            jTextField9.setText(users.get(a).getCorreo());
+            jTextField10.setText(users.get(a).getUser());
+            jTextField11.setText(users.get(a).getContrasena());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
+        }
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -388,26 +501,36 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JDialog jd_logeado;
     private javax.swing.JDialog jd_registrar;
     // End of variables declaration//GEN-END:variables
 ArrayList<Usuario> users = new ArrayList();
+    int a,age;
 }
