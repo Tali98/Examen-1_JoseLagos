@@ -5,17 +5,13 @@
  */
 package examen1;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author alexycruz1
+ * @author tali_
  */
-public class Examen1 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public class Metodos {
+     ArrayList<String>atributos1 = new ArrayList();
+     ArrayList<String>type  = new ArrayList();
 }

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class clases {
     private String clase_name;
     ArrayList<String>atributos = new ArrayList();
-    ArrayList<String>metodos = new ArrayList();
+    ArrayList<Metodos>methods = new ArrayList();
      ArrayList<String>type  = new ArrayList();
     
 }
