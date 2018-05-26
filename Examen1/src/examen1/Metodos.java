@@ -13,5 +13,23 @@ import java.util.ArrayList;
  */
 public class Metodos {
      ArrayList<String>atributos1 = new ArrayList();
-     ArrayList<String>type  = new ArrayList();
+
+
+    public Metodos() {
+    }
+
+    public ArrayList<String> getAtributos1() {
+        return atributos1;
+    }
+
+    public void setAtributos1(ArrayList<String> atributos1) {
+        this.atributos1 = atributos1;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Metodos{" + "atributos1=" + atributos1+ '}';
+    }
+     
 }

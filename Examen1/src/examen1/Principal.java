@@ -57,7 +57,14 @@ public class Principal extends javax.swing.JFrame {
         jTextField11 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jButton7 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButton6 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -220,28 +227,81 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Perfil", jPanel1);
 
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jButton7.setText("START");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(280, 280, 280)
+                        .addComponent(jButton7)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(jButton7)
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("VIsualizar", jPanel2);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 34)); // NOI18N
+        jLabel9.setText("Commandos");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButton6.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton6.setText("INGRESAR");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 744, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton6)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 560, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(18, 18, 18)
+                .addComponent(jButton6)
+                .addContainerGap(361, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ejecutar", jPanel3);
@@ -350,10 +410,6 @@ public class Principal extends javax.swing.JFrame {
                 String pass = users.get(a).getContrasena();
                 String con2 = jTextField1.getText();
                 String pass2 = jPasswordField1.getText();
-                System.out.println(con);
-                System.out.println(pass);
-                System.out.println(con2);
-                System.out.println(pass2);
                 if (con.equals(con2) && pass.equals(pass2)) {
                     v = false;
                     break;
@@ -361,7 +417,6 @@ public class Principal extends javax.swing.JFrame {
                     v = true;
                 }
             }
-            System.out.println(v);
             if (v == false) {
                 jTextField7.setText("");
                 jTextField9.setText("");
@@ -393,6 +448,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         // TODO add your handling code here:
+        jTextArea1.setText("");
+        jTextArea2.setText("");
         jd_logeado.dispose();
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -461,6 +518,86 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5MouseClicked
 
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        String command = jTextArea1.getText();
+        command = command.toLowerCase();
+        if (command.contains("class")) {
+            if (command.contains("create")) {
+                String d[] = command.split(" ");
+                clases k = new clases(d[2]);
+                users.get(a).lista.add(k);
+            }
+            if (command.contains("modify")) {
+                String d[] = command.split(" ");
+                for (int b = 0; b < users.get(a).lista.size(); b++) {
+                    if (users.get(a).lista.get(b).getClase_name().equals(d[2])) {
+                        users.get(a).lista.get(b).setClase_name(d[4]);
+                        break;
+                    } else {
+                        JOptionPane.showMessageDialog(this, "NO existe es clase");
+                    }
+                }
+            }
+            if (command.contains("delete")) {
+                String d[] = command.split(" ");
+                for (int b = 0; b < users.get(a).lista.size(); b++) {
+                    if (users.get(a).lista.get(b).getClase_name().equals(d[2])) {
+                        users.get(a).lista.remove(b);
+                        break;
+                    } else {
+                        JOptionPane.showMessageDialog(this, "NO existe es clase");
+                    }
+                }
+            }
+        }
+        if (command.contains("atribute")) {
+            if (command.contains("add")) {
+                String d[] = command.split(" ");
+                for (int b = 0; b < users.get(a).lista.size(); b++) {
+                    if (users.get(a).lista.get(b).getClase_name().equals(d[3])) {
+                        users.get(a).lista.get(b).atributos.add(d[4] + " " + d[5]);
+                        break;
+                    }
+                }
+            }
+            if (command.contains("modify")) {
+                String d[] = command.split(" ");
+                for (int b = 0; b < users.get(a).lista.size(); b++) {
+                    if (users.get(a).lista.get(b).getClase_name().equals(d[3])) {
+                        for (int c = 0; c < users.get(a).lista.get(b).atributos.size(); c++) {
+                            if (users.get(a).lista.get(b).atributos.get(c).equals(d[4] + " " + d[5])) {
+                                users.get(a).lista.get(b).atributos.get(c).replaceAll(d[4] + " " + d[5], d[7] + " " + d[8]);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            if (command.contains("delete")) {
+                String d[] = command.split(" ");
+                for (int b = 0; b < users.get(a).lista.size(); b++) {
+                    if (users.get(a).lista.get(b).getClase_name().equals(d[3])) {
+                        for (int c = 0; c < users.get(a).lista.get(b).atributos.size(); c++) {
+                            if (users.get(a).lista.get(b).atributos.get(c).equals(d[4] + " " + d[5])) {
+                                users.get(a).lista.get(b).atributos.remove(c);
+                                break;
+                            }
+                        }
+                        break;
+                    }
+                }
+
+            }
+        }
+        jTextArea2.setText("");
+        jTextArea1.setText("");
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+       jTextArea2.setText(users.get(a).lista.toString());
+    }//GEN-LAST:event_jButton7MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -502,6 +639,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -513,11 +652,16 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -532,5 +676,5 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_registrar;
     // End of variables declaration//GEN-END:variables
 ArrayList<Usuario> users = new ArrayList();
-    int a,age;
+    int a, age;
 }
